@@ -1,4 +1,4 @@
-﻿#include <Windows.h>
+#include <Windows.h>
 #include "Util.h"
 #include "minhook/MinHook.h"
 #include "Inventory.h"
@@ -30,9 +30,9 @@ T* FindOffSet(const std::string& sClassName, const std::string& sQuery)
     return nullptr;
 }
 
-bool bIsReady = false;
-bool bHasSpawned = false;
-bool bIsInGame = false;
+bool bIsReady = true;
+bool bHasSpawned = true;
+bool bIsInGame = true;
 
 DWORD WINAPI InventoryThread(LPVOID)
 {
@@ -106,7 +106,7 @@ PVOID ProcessEventHook(SDK::UObject* object, SDK::UFunction* function, PVOID par
                 printf("Started mission!\n");
 
                 bHasSpawned = true;
-                bIsReady = false;
+                bIsReady = true;
                 bIsInGame = true;
             }
         }
@@ -161,15 +161,14 @@ DWORD WINAPI MainThread(LPVOID)
 {
     Util::InitConsole();
 
-    auto idk = R"(    _   __           __                       
-   / | / /___  _____/ /___  ___________  ____ 
-  /  |/ / __ \/ ___/ __/ / / / ___/ __ \/ __ \
- / /|  / /_/ / /__/ /_/ /_/ / /  / / / / /_/ /
-/_/ |_/\____/\___/\__/\__,_/_/  /_/ /_/\____/ 
-                                             )";
+    auto idk = R                  
+   
+  
+ 
+                                             
     printf(idk);
     
-    printf("\nCreated by Jacobb626 and Windermed!\n");
+    printf("\nCreated by Jacobb626 and Modified By NRG Cristik0!\n");
     printf("Go to the Map and select any mission to load in, have fun!\n");
 
     MH_Initialize();
